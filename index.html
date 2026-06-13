@@ -3,153 +3,132 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Home | Mayra Moda Íntima</title>
-  <meta name="description" content="Protótipo local de ecommerce Mayra Moda Íntima." />
+  <title>Mayra Moda Íntima</title>
+  <meta name="description" content="Moda íntima, conforto e soluções para você se vestir com liberdade." />
   <link rel="icon" href="/assets/logo/logo-mayra.svg" type="image/svg+xml" />
   <link rel="stylesheet" href="/src/styles.css" />
 </head>
 <body class="home">
-  <div class="announcement">Frete simulado grátis acima de R$ 299 • Trocas em até 7 dias • Protótipo local</div>
-  <header class="site-header" data-header>
-    <button class="icon-btn menu-toggle" aria-label="Abrir menu" data-menu-toggle>☰</button>
-    <a class="brand" href="/" aria-label="Mayra Moda Íntima"><img src="/assets/logo/logo-mayra.svg" alt="Mayra Moda Íntima" /></a>
-    <nav class="main-nav" data-main-nav>
-<a href="/collections/sutias.html">Sutiãs</a>
-<a href="/collections/calcinhas.html">Calcinhas</a>
-<a href="/collections/conjuntos.html">Conjuntos</a>
-<a href="/collections/modeladores.html">Modeladores</a>
-<a href="/collections/acessorios.html">Acessórios</a>
-<a href="/collections/kits.html">Kits</a>
-</nav>
-    <div class="header-actions">
-      <button class="ghost-btn" data-search-toggle>Buscar</button>
-      <a class="cart-link" href="/cart.html">Sacola <span data-cart-count>0</span></a>
-    </div>
-  </header>
-  <aside class="mobile-menu" data-mobile-menu>
-    <button class="icon-btn close" data-menu-toggle aria-label="Fechar menu">×</button>
-    <a class="brand side" href="/"><img src="/assets/logo/logo-mayra.svg" alt="Mayra" /></a>
-    
-<a href="/collections/sutias.html">Sutiãs</a>
-<a href="/collections/calcinhas.html">Calcinhas</a>
-<a href="/collections/conjuntos.html">Conjuntos</a>
-<a href="/collections/modeladores.html">Modeladores</a>
-<a href="/collections/acessorios.html">Acessórios</a>
-<a href="/collections/kits.html">Kits</a>
+  <div class="announcement">Frete grátis em compras acima de R$ 299</div>
+  <header class="site-header" data-header></header>
+  <aside class="mobile-menu" data-mobile-menu></aside>
+  <div class="search-panel" data-search-panel></div>
 
-    <a href="/pages/sobre.html">Sobre</a>
-    <a href="/pages/perguntas-frequentes.html">FAQ</a>
-  </aside>
-  <div class="search-panel" data-search-panel>
-    <button class="icon-btn close" data-search-toggle aria-label="Fechar busca">×</button>
-    <label for="siteSearch">Buscar no catálogo</label>
-    <input id="siteSearch" data-search-input type="search" placeholder="Ex.: sutiã, calcinha, kit..." />
-    <div class="search-results" data-search-results></div>
-  </div>
   <main>
-<section class="hero">
-  <video class="hero-video desktop" autoplay muted loop playsinline poster="/assets/images/banners/hero-desktop.jpg">
-    <source src="/assets/videos/hero-desktop.mp4" type="video/mp4" />
-  </video>
-  <video class="hero-video mobile" autoplay muted loop playsinline poster="/assets/images/banners/hero-mobile.jpg">
-    <source src="/assets/videos/hero-mobile.mp4" type="video/mp4" />
-  </video>
-  <div class="hero-overlay"></div>
-  <div class="hero-content">
-    <span class="eyebrow">Mayra Moda Íntima</span>
-    <h1>Base elegante para a rotina real.</h1>
-    <p>Protótipo de ecommerce com estrutura de coleção, produto, carrinho local e documentação de assets para substituição posterior.</p>
-    <div class="hero-actions">
-      <a class="btn primary" href="/collections/all.html">Ver coleção</a>
-      <a class="btn light" href="/pages/sobre.html">Conhecer marca</a>
-    </div>
-  </div>
-</section>
-<section class="section intro-split">
-  <div>
-    <span class="eyebrow">Coleções</span>
-    <h2>Arquitetura visual pronta para trocar conteúdo.</h2>
-  </div>
-  <p>Todos os blocos usam imagens e vídeos simulados. Troque os arquivos mantendo os nomes ou ajuste os caminhos em <code>src/data/products.js</code> e no HTML.</p>
-</section>
-<section class="category-grid" data-category-grid></section>
-<section class="section dark-band">
-  <div>
-    <span class="eyebrow">Destaques</span>
-    <h2>Peças para vender a ideia antes do catálogo real.</h2>
-  </div>
-  <div class="product-grid" data-products="featured" data-limit="4"></div>
-</section>
-<section class="editorial two-col">
-  <img src="/assets/images/banners/editorial-01.jpg" alt="Banner editorial Mayra" loading="lazy" />
-  <div class="editorial-copy">
-    <span class="eyebrow">Experiência</span>
-    <h2>UX pensada para moda íntima: rápida, limpa e com boa hierarquia.</h2>
-    <p>A base inclui vitrine, categorias, página de produto, avaliações, FAQ, guia de tamanhos e carrinho em localStorage.</p>
-    <a class="btn secondary" href="/pages/guia-de-tamanhos.html">Ver guia de tamanhos</a>
-  </div>
-</section>
-<section class="benefits">
-  <article><img src="/assets/images/icons/truck.svg" alt="" /><h3>Entrega</h3><p>Texto simulado para regra de frete e prazo.</p></article>
-  <article><img src="/assets/images/icons/exchange.svg" alt="" /><h3>Trocas</h3><p>Bloco pronto para política comercial.</p></article>
-  <article><img src="/assets/images/icons/shield.svg" alt="" /><h3>Compra segura</h3><p>Integração real entra depois no Shopify.</p></article>
-  <article><img src="/assets/images/icons/spark.svg" alt="" /><h3>Curadoria</h3><p>Use para posicionamento premium.</p></article>
-</section>
-<section class="section">
-  <div class="section-head">
-    <div><span class="eyebrow">Mais vendidos</span><h2>Vitrine principal</h2></div>
-    <a class="text-link" href="/collections/all.html">Ver tudo</a>
-  </div>
-  <div class="product-grid" data-products="all" data-limit="8"></div>
-</section>
-<section class="video-stories">
-  <div class="story-copy"><span class="eyebrow">Vídeos</span><h2>Slots verticais para Reels, provas sociais ou demonstrações.</h2><p>Os vídeos atuais são placeholders de 3 segundos. O README lista tamanho e formato recomendado.</p></div>
-  <video autoplay muted loop playsinline poster="/assets/images/banners/hero-mobile.jpg"><source src="/assets/videos/story-vertical-01.mp4" type="video/mp4" /></video>
-  <video autoplay muted loop playsinline poster="/assets/images/banners/hero-mobile.jpg"><source src="/assets/videos/story-vertical-02.mp4" type="video/mp4" /></video>
-</section>
-<section class="reviews-strip">
-  <span class="eyebrow">Avaliações simuladas</span>
-  <div class="review-row">
-    <blockquote>“Layout elegante, direto e fácil de adaptar para a marca.” <small>Cliente teste</small></blockquote>
-    <blockquote>“A estrutura deixa claro onde entram fotos, vídeos e produtos reais.” <small>Operação</small></blockquote>
-    <blockquote>“Boa base para migrar para Shopify depois.” <small>Implementação</small></blockquote>
-  </div>
-</section>
-</main>
-  <section class="newsletter">
-    <div>
-      <span class="eyebrow">Lista Mayra</span>
-      <h2>Receba prévias de coleção e ofertas controladas.</h2>
-      <p>Campo apenas visual nesta versão local. No Shopify, conectar ao app de e-mail marketing.</p>
-    </div>
-    <form onsubmit="event.preventDefault(); this.classList.add('sent'); this.querySelector('button').textContent='Cadastrado';">
-      <input type="email" placeholder="seu@email.com" aria-label="E-mail" required />
-      <button class="btn primary">Cadastrar</button>
-    </form>
-  </section>
-  <footer class="site-footer">
-    <div class="footer-logo"><img src="/assets/logo/logo-mayra.svg" alt="Mayra" /></div>
-    <div>
-      <h3>Comprar</h3>
-      <a href="/collections/sutias.html">Sutiãs</a>
-      <a href="/collections/calcinhas.html">Calcinhas</a>
-      <a href="/collections/conjuntos.html">Conjuntos</a>
-      <a href="/collections/kits.html">Kits</a>
-    </div>
-    <div>
-      <h3>Marca</h3>
-      <a href="/pages/sobre.html">Sobre a Mayra</a>
-      <a href="/pages/avaliacoes.html">Avaliações</a>
-      <a href="/blog/index.html">Conteúdo</a>
-      <a href="/pages/guia-de-tamanhos.html">Guia de tamanhos</a>
-    </div>
-    <div>
-      <h3>Atendimento</h3>
-      <a href="/pages/perguntas-frequentes.html">Perguntas frequentes</a>
-      <a href="/cart.html">Sacola</a>
-      <p>Protótipo local. Sem checkout real.</p>
-    </div>
-  </footer>
+    <section class="home-hero">
+      <img src="/assets/reference/home/hero-desktop.jpg" alt="Mulheres usando moda íntima Mayra" />
+      <div class="home-hero__content">
+        <span>Conforto que acompanha você</span>
+        <h1>Liberdade para se vestir como quiser.</h1>
+        <p>Peças leves, invisíveis sob a roupa e pensadas para todos os corpos.</p>
+        <a class="btn primary" href="/collections/all.html">Escolha seus produtos</a>
+      </div>
+    </section>
+
+    <nav class="quick-categories" aria-label="Categorias em destaque">
+      <a href="/collections/sutias.html">
+        <img src="/assets/reference/categories/sutias-mini.png" alt="" />
+        <span>Sutiãs</span>
+      </a>
+      <a href="/collections/calcinhas.html">
+        <img src="/assets/reference/categories/calcinhas-mini.png" alt="" />
+        <span>Calcinhas</span>
+      </a>
+      <a href="/collections/acessorios.html">
+        <img src="/assets/reference/categories/adesivos-mini.png" alt="" />
+        <span>Adesivos</span>
+      </a>
+      <a href="/collections/conjuntos.html">
+        <img src="/assets/reference/categories/conjuntos-mini.png" alt="" />
+        <span>Conjuntos</span>
+      </a>
+      <a href="/collections/acessorios.html">
+        <img src="/assets/reference/categories/acessorios-mini.png" alt="" />
+        <span>Acessórios</span>
+      </a>
+    </nav>
+
+    <section class="section product-showcase">
+      <div class="section-head centered">
+        <div>
+          <span class="eyebrow">Os queridinhos da Mayra</span>
+          <h2>Mais vendidos</h2>
+        </div>
+      </div>
+      <div class="product-grid" data-products="featured" data-limit="4"></div>
+    </section>
+
+    <section class="category-panels" aria-label="Coleções Mayra">
+      <a href="/collections/sutias.html" class="category-panel">
+        <img src="/assets/reference/categories/sutias-wide.jpg" alt="Coleção de sutiãs" loading="lazy" />
+        <div><h2>Sutiãs</h2><span class="btn coral">Acessar</span></div>
+      </a>
+      <a href="/collections/calcinhas.html" class="category-panel">
+        <img src="/assets/reference/categories/calcinhas-wide.jpg" alt="Coleção de calcinhas" loading="lazy" />
+        <div><h2>Calcinhas</h2><span class="btn coral">Acessar</span></div>
+      </a>
+      <a href="/collections/acessorios.html" class="category-panel">
+        <img src="/assets/reference/categories/adesivos-wide.jpg" alt="Coleção de adesivos" loading="lazy" />
+        <div><h2>Adesivos</h2><span class="btn coral">Acessar</span></div>
+      </a>
+    </section>
+
+    <section class="social-section">
+      <div class="section-head centered">
+        <div>
+          <span class="eyebrow">Vida real, corpos reais</span>
+          <h2>Squad Mayra</h2>
+        </div>
+      </div>
+      <div class="story-grid">
+        <article class="story-card">
+          <video muted loop playsinline preload="metadata" poster="/assets/reference/home/lifestyle-01.jpg">
+            <source src="/assets/reference/videos/story-01.mp4" type="video/mp4" />
+          </video>
+          <div><strong>@mayramodaintima</strong><a href="/collections/sutias.html">Ver sutiãs</a></div>
+        </article>
+        <article class="story-card">
+          <video muted loop playsinline preload="metadata" poster="/assets/reference/home/lifestyle-02.jpg">
+            <source src="/assets/reference/videos/story-02.mp4" type="video/mp4" />
+          </video>
+          <div><strong>@mayramodaintima</strong><a href="/collections/calcinhas.html">Ver calcinhas</a></div>
+        </article>
+        <article class="story-card">
+          <video muted loop playsinline preload="metadata" poster="/assets/reference/products/comfort-slim.jpg">
+            <source src="/assets/reference/videos/story-03.mp4" type="video/mp4" />
+          </video>
+          <div><strong>@mayramodaintima</strong><a href="/collections/conjuntos.html">Ver conjuntos</a></div>
+        </article>
+        <article class="story-card">
+          <video muted loop playsinline preload="metadata" poster="/assets/reference/products/protetor-silicone.jpg">
+            <source src="/assets/reference/videos/story-04.mp4" type="video/mp4" />
+          </video>
+          <div><strong>@mayramodaintima</strong><a href="/collections/acessorios.html">Ver acessórios</a></div>
+        </article>
+      </div>
+    </section>
+
+    <section class="brand-story">
+      <div class="brand-story__image">
+        <img src="/assets/reference/home/lifestyle-01.jpg" alt="Mulheres usando peças Mayra" loading="lazy" />
+      </div>
+      <div class="brand-story__copy">
+        <span class="eyebrow">Mayra é para todas</span>
+        <h2>Conforto sem regras, do seu jeito.</h2>
+        <p>Uma seleção de peças que resolve o look, respeita seu corpo e fica invisível quando precisa.</p>
+        <ul>
+          <li>Modelagens pensadas para a rotina</li>
+          <li>Troca fácil em até 7 dias</li>
+          <li>Compra segura e atendimento próximo</li>
+        </ul>
+        <a class="btn primary" href="/pages/sobre.html">Conheça a Mayra</a>
+      </div>
+    </section>
+  </main>
+
+  <section class="newsletter"></section>
+  <footer class="site-footer"></footer>
+
   <div class="cart-drawer" data-cart-drawer aria-hidden="true">
     <div class="cart-drawer__panel">
       <button class="icon-btn close" data-cart-close aria-label="Fechar sacola">×</button>
@@ -160,6 +139,7 @@
       <button class="btn secondary full" data-cart-close>Continuar comprando</button>
     </div>
   </div>
+
   <script type="module" src="/src/main.js"></script>
 </body>
 </html>

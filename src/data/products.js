@@ -1,378 +1,255 @@
+const ref = '/assets/reference/products';
+
 export const products = [
   {
-    "id": "sutia-essencial-luna",
-    "name": "Sutiã Essencial Luna",
-    "category": "sutias",
-    "price": 149.9,
-    "compareAt": 189.9,
-    "badge": "Novo",
-    "colors": [
-      "Borgonha",
-      "Champagne",
-      "Preto"
-    ],
-    "sizes": [
-      "P",
-      "M",
-      "G",
-      "GG"
-    ],
-    "description": "Sutiã de sustentação leve, pensado para uso diário com acabamento discreto sob a roupa.",
-    "features": [
-      "Bojo removível",
-      "Alças reguláveis",
-      "Tecido macio e respirável"
-    ],
-    "image": "/assets/images/products/sutia-essencial-luna.jpg",
-    "gallery": [
-      "/assets/images/products/sutia-essencial-luna.jpg",
-      "/assets/images/products/sutia-essencial-luna-detail.jpg"
-    ]
+    id: 'protetor-silicone-ultrafino',
+    name: 'Protetor de Silicone Ultrafino',
+    category: 'acessorios',
+    price: 79.9,
+    compareAt: 99.9,
+    badge: 'Mais vendido',
+    featured: true,
+    rating: 4.9,
+    reviews: 1676,
+    colors: ['Baunilha', 'Caramelo'],
+    sizes: ['P', 'G'],
+    description: 'Proteção ultrafina, reutilizável e discreta para usar com decotes, transparências e peças sem sutiã.',
+    features: ['Acabamento invisível', 'Reutilizável', 'Toque macio e aderência confortável'],
+    image: `${ref}/protetor-silicone.jpg`,
+    gallery: [`${ref}/protetor-silicone.jpg`, `${ref}/protetor-silicone-detail.jpg`]
   },
   {
-    "id": "top-sem-costura-aurora",
-    "name": "Top Sem Costura Aurora",
-    "category": "sutias",
-    "price": 119.9,
-    "compareAt": 0,
-    "badge": "Conforto",
-    "colors": [
-      "Areia",
-      "Chocolate",
-      "Preto"
-    ],
-    "sizes": [
-      "P",
-      "M",
-      "G"
-    ],
-    "description": "Top de toque liso com elasticidade para acompanhar a rotina sem marcar.",
-    "features": [
-      "Sem aro",
-      "Sem costura lateral",
-      "Alta elasticidade"
-    ],
-    "image": "/assets/images/products/top-sem-costura-aurora.jpg",
-    "gallery": [
-      "/assets/images/products/top-sem-costura-aurora.jpg",
-      "/assets/images/products/top-sem-costura-aurora-detail.jpg"
-    ]
+    id: 'sutia-silicone-invisivel',
+    name: 'Sutiã de Silicone Invisível',
+    category: 'sutias',
+    price: 149.9,
+    compareAt: 199.9,
+    badge: 'Favorito',
+    featured: true,
+    rating: 4.8,
+    reviews: 398,
+    colors: ['Baunilha', 'Caramelo'],
+    sizes: ['A', 'B', 'C', 'D'],
+    description: 'Sutiã adesivo com efeito de aproximação e acabamento invisível para roupas abertas nas costas.',
+    features: ['Fecho frontal', 'Sem alças', 'Aderência reutilizável'],
+    image: `${ref}/sutia-silicone.jpg`,
+    gallery: [`${ref}/sutia-silicone.jpg`, `${ref}/sutia-silicone-detail.jpg`]
   },
   {
-    "id": "calcinha-cintura-alta-serena",
-    "name": "Calcinha Cintura Alta Serena",
-    "category": "calcinhas",
-    "price": 69.9,
-    "compareAt": 89.9,
-    "badge": "Mais vendido",
-    "colors": [
-      "Borgonha",
-      "Nude",
-      "Preto"
-    ],
-    "sizes": [
-      "P",
-      "M",
-      "G",
-      "GG"
-    ],
-    "description": "Calcinha de cintura alta com cobertura confortável e visual elegante.",
-    "features": [
-      "Cós macio",
-      "Forro 100% algodão",
-      "Acabamento invisível"
-    ],
-    "image": "/assets/images/products/calcinha-cintura-alta-serena.jpg",
-    "gallery": [
-      "/assets/images/products/calcinha-cintura-alta-serena.jpg",
-      "/assets/images/products/calcinha-cintura-alta-serena-detail.jpg"
-    ]
+    id: 'sutia-comfort-slim',
+    name: 'Sutiã Comfort Slim',
+    category: 'sutias',
+    price: 189.9,
+    compareAt: 219.9,
+    badge: 'Conforto',
+    featured: true,
+    rating: 4.9,
+    reviews: 644,
+    colors: ['Rosé', 'Preto', 'Baunilha'],
+    sizes: ['P', 'M', 'G', 'GG'],
+    description: 'Sustentação leve e tecido respirável em uma modelagem macia que não marca sob a roupa.',
+    features: ['Sem aro', 'Bojo anatômico', 'Laterais sem costura'],
+    image: `${ref}/comfort-slim.jpg`,
+    gallery: [`${ref}/comfort-slim.jpg`, `${ref}/comfort-slim-detail.jpg`]
   },
   {
-    "id": "calcinha-biquini-maya",
-    "name": "Calcinha Biquíni Maya",
-    "category": "calcinhas",
-    "price": 59.9,
-    "compareAt": 0,
-    "badge": "Básico",
-    "colors": [
-      "Champagne",
-      "Cacau",
-      "Preto"
-    ],
-    "sizes": [
-      "P",
-      "M",
-      "G"
-    ],
-    "description": "Modelagem clássica para compor conjuntos básicos e sofisticados.",
-    "features": [
-      "Laterais confortáveis",
-      "Malha suave",
-      "Secagem rápida"
-    ],
-    "image": "/assets/images/products/calcinha-biquini-maya.jpg",
-    "gallery": [
-      "/assets/images/products/calcinha-biquini-maya.jpg",
-      "/assets/images/products/calcinha-biquini-maya-detail.jpg"
-    ]
+    id: 'sutia-comfort-line',
+    name: 'Sutiã Comfort Line',
+    category: 'sutias',
+    price: 189.9,
+    compareAt: 219.9,
+    badge: 'Novo',
+    featured: true,
+    rating: 4.8,
+    reviews: 262,
+    colors: ['Preto', 'Rosé', 'Baunilha'],
+    sizes: ['P', 'M', 'G', 'GG'],
+    description: 'Top faixa com suporte delicado, toque macio e versatilidade para diferentes decotes.',
+    features: ['Alças removíveis', 'Sem aro', 'Tecido de alta elasticidade'],
+    image: `${ref}/comfort-line.jpg`,
+    gallery: [`${ref}/comfort-line.jpg`, `${ref}/comfort-line-detail.jpg`]
   },
   {
-    "id": "conjunto-noiva-lis",
-    "name": "Conjunto Noiva Lis",
-    "category": "conjuntos",
-    "price": 239.9,
-    "compareAt": 299.9,
-    "badge": "Premium",
-    "colors": [
-      "Off White",
-      "Champagne"
-    ],
-    "sizes": [
-      "P",
-      "M",
-      "G"
-    ],
-    "description": "Conjunto delicado com acabamento refinado para ocasiões especiais.",
-    "features": [
-      "Detalhe rendado",
-      "Ajuste delicado",
-      "Embalagem especial"
-    ],
-    "image": "/assets/images/products/conjunto-noiva-lis.jpg",
-    "gallery": [
-      "/assets/images/products/conjunto-noiva-lis.jpg",
-      "/assets/images/products/conjunto-noiva-lis-detail.jpg"
-    ]
+    id: 'top-segunda-pele',
+    name: 'Top Segunda Pele Skin',
+    category: 'sutias',
+    price: 129.9,
+    compareAt: 159.9,
+    badge: 'Segunda pele',
+    rating: 4.9,
+    reviews: 218,
+    colors: ['Caramelo', 'Baunilha', 'Preto'],
+    sizes: ['P', 'M', 'G', 'GG'],
+    description: 'Top sem costura com sensação de segunda pele e sustentação para o uso diário.',
+    features: ['Sem etiquetas', 'Não marca', 'Secagem rápida'],
+    image: `${ref}/top-skin.jpg`,
+    gallery: [`${ref}/top-skin.jpg`, `${ref}/top-skin-detail.jpg`]
   },
   {
-    "id": "conjunto-daily-amora",
-    "name": "Conjunto Daily Amora",
-    "category": "conjuntos",
-    "price": 199.9,
-    "compareAt": 0,
-    "badge": "Coleção",
-    "colors": [
-      "Borgonha",
-      "Preto"
-    ],
-    "sizes": [
-      "P",
-      "M",
-      "G",
-      "GG"
-    ],
-    "description": "Conjunto funcional com estética minimalista para o dia a dia.",
-    "features": [
-      "Sustentação média",
-      "Toque acetinado",
-      "Modelagem anatômica"
-    ],
-    "image": "/assets/images/products/conjunto-daily-amora.jpg",
-    "gallery": [
-      "/assets/images/products/conjunto-daily-amora.jpg",
-      "/assets/images/products/conjunto-daily-amora-detail.jpg"
-    ]
+    id: 'calcinha-cos-alto-skin',
+    name: 'Calcinha Cós Alto Skin',
+    category: 'calcinhas',
+    price: 69.9,
+    compareAt: 89.9,
+    badge: 'Essencial',
+    rating: 4.8,
+    reviews: 186,
+    colors: ['Baunilha', 'Caramelo', 'Preto'],
+    sizes: ['P', 'M', 'G', 'GG'],
+    description: 'Cintura alta, cobertura confortável e acabamento suave para não marcar.',
+    features: ['Forro em algodão', 'Cós macio', 'Acabamento invisível'],
+    image: `${ref}/calcinha-cos-alto.jpg`,
+    gallery: [`${ref}/calcinha-cos-alto.jpg`, `${ref}/calcinha-cos-alto-detail.jpg`]
   },
   {
-    "id": "body-modelador-hera",
-    "name": "Body Modelador Hera",
-    "category": "modeladores",
-    "price": 269.9,
-    "compareAt": 329.9,
-    "badge": "Modelador",
-    "colors": [
-      "Nude",
-      "Preto"
-    ],
-    "sizes": [
-      "P",
-      "M",
-      "G",
-      "GG"
-    ],
-    "description": "Body modelador com compressão moderada e linhas limpas.",
-    "features": [
-      "Compressão moderada",
-      "Fecho inferior",
-      "Costas confortáveis"
-    ],
-    "image": "/assets/images/products/body-modelador-hera.jpg",
-    "gallery": [
-      "/assets/images/products/body-modelador-hera.jpg",
-      "/assets/images/products/body-modelador-hera-detail.jpg"
-    ]
+    id: 'calcinha-biquini-skin',
+    name: 'Calcinha Biquíni Skin',
+    category: 'calcinhas',
+    price: 59.9,
+    compareAt: 79.9,
+    badge: 'Básico perfeito',
+    rating: 4.9,
+    reviews: 142,
+    colors: ['Baunilha', 'Caramelo', 'Preto'],
+    sizes: ['P', 'M', 'G', 'GG'],
+    description: 'Modelagem biquíni com laterais confortáveis e toque leve para todos os dias.',
+    features: ['Não marca', 'Forro em algodão', 'Tecido respirável'],
+    image: `${ref}/calcinha-biquini.jpg`,
+    gallery: [`${ref}/calcinha-biquini.jpg`, `${ref}/calcinha-biquini-detail.jpg`]
   },
   {
-    "id": "short-modelador-navia",
-    "name": "Short Modelador Navia",
-    "category": "modeladores",
-    "price": 159.9,
-    "compareAt": 199.9,
-    "badge": "Oferta",
-    "colors": [
-      "Nude",
-      "Preto"
-    ],
-    "sizes": [
-      "P",
-      "M",
-      "G",
-      "GG"
-    ],
-    "description": "Short com acabamento invisível para vestidos, saias e peças justas.",
-    "features": [
-      "Não enrola",
-      "Cintura alta",
-      "Tecido respirável"
-    ],
-    "image": "/assets/images/products/short-modelador-navia.jpg",
-    "gallery": [
-      "/assets/images/products/short-modelador-navia.jpg",
-      "/assets/images/products/short-modelador-navia-detail.jpg"
-    ]
+    id: 'kit-top-calcinha-biquini',
+    name: 'Kit Top + Calcinha Biquíni',
+    category: 'conjuntos',
+    price: 179.9,
+    compareAt: 219.8,
+    badge: 'Kit',
+    rating: 4.9,
+    reviews: 97,
+    colors: ['Caramelo', 'Baunilha', 'Preto'],
+    sizes: ['P', 'M', 'G', 'GG'],
+    description: 'Conjunto coordenado de segunda pele para uma base leve, confortável e sem marcas.',
+    features: ['Duas peças', 'Economia no conjunto', 'Cores coordenadas'],
+    image: `${ref}/kit-top-biquini.jpg`,
+    gallery: [`${ref}/kit-top-biquini.jpg`, `${ref}/kit-top-biquini-detail.jpg`]
   },
   {
-    "id": "protetor-silicone-delicat",
-    "name": "Protetor Silicone Delicat",
-    "category": "acessorios",
-    "price": 79.9,
-    "compareAt": 99.9,
-    "badge": "Acessório",
-    "colors": [
-      "Transparente"
-    ],
-    "sizes": [
-      "Único"
-    ],
-    "description": "Protetor reutilizável para acabamento discreto em produções específicas.",
-    "features": [
-      "Reutilizável",
-      "Estojo incluso",
-      "Uso discreto"
-    ],
-    "image": "/assets/images/products/protetor-silicone-delicat.jpg",
-    "gallery": [
-      "/assets/images/products/protetor-silicone-delicat.jpg",
-      "/assets/images/products/protetor-silicone-delicat-detail.jpg"
-    ]
+    id: 'sutia-comfort-up',
+    name: 'Sutiã Comfort Up',
+    category: 'sutias',
+    price: 189.9,
+    compareAt: 229.9,
+    badge: 'Sustentação',
+    rating: 4.9,
+    reviews: 531,
+    colors: ['Preto', 'Caramelo', 'Baunilha'],
+    sizes: ['P', 'M', 'G', 'GG', 'XGG'],
+    description: 'Sutiã sem aro com sustentação confortável e cobertura pensada para diferentes corpos.',
+    features: ['Alças largas', 'Laterais firmes', 'Bojo sem costura'],
+    image: `${ref}/comfort-up.jpg`,
+    gallery: [`${ref}/comfort-up.jpg`, `${ref}/comfort-up-detail.jpg`]
   },
   {
-    "id": "fita-fashion-fit",
-    "name": "Fita Fashion Fit",
-    "category": "acessorios",
-    "price": 49.9,
-    "compareAt": 0,
-    "badge": "Prático",
-    "colors": [
-      "Transparente"
-    ],
-    "sizes": [
-      "Único"
-    ],
-    "description": "Fita dupla face para ajustes rápidos em decotes e barras.",
-    "features": [
-      "Pré-cortada",
-      "Acabamento transparente",
-      "Ideal para emergência"
-    ],
-    "image": "/assets/images/products/fita-fashion-fit.jpg",
-    "gallery": [
-      "/assets/images/products/fita-fashion-fit.jpg",
-      "/assets/images/products/fita-fashion-fit-detail.jpg"
-    ]
+    id: 'fita-fashion-up',
+    name: 'Fita Fashion Up',
+    category: 'acessorios',
+    price: 89.9,
+    compareAt: 109.9,
+    badge: 'Versátil',
+    rating: 4.8,
+    reviews: 824,
+    colors: ['Bege', 'Caramelo', 'Preto'],
+    sizes: ['P', 'G'],
+    description: 'Fita corporal para criar sustentação sob decotes, costas abertas e roupas de festa.',
+    features: ['Resistente ao suor', 'Recortável', 'Acompanha protetores'],
+    image: `${ref}/fita-up.jpg`,
+    gallery: [`${ref}/fita-up.jpg`, `${ref}/fita-up-detail.jpg`]
   },
   {
-    "id": "kit-essenciais-mayra",
-    "name": "Kit Essenciais Mayra",
-    "category": "kits",
-    "price": 299.9,
-    "compareAt": 389.9,
-    "badge": "Kit",
-    "colors": [
-      "Misto"
-    ],
-    "sizes": [
-      "P",
-      "M",
-      "G"
-    ],
-    "description": "Seleção de básicos para montar uma gaveta funcional de moda íntima.",
-    "features": [
-      "3 peças coordenadas",
-      "Economia no combo",
-      "Presenteável"
-    ],
-    "image": "/assets/images/products/kit-essenciais-mayra.jpg",
-    "gallery": [
-      "/assets/images/products/kit-essenciais-mayra.jpg",
-      "/assets/images/products/kit-essenciais-mayra-detail.jpg"
-    ]
+    id: 'kit-top-cos-alto',
+    name: 'Kit Top + Calcinha Cós Alto',
+    category: 'kits',
+    price: 189.9,
+    compareAt: 229.8,
+    badge: 'Monte seu kit',
+    rating: 4.9,
+    reviews: 113,
+    colors: ['Caramelo', 'Baunilha', 'Preto'],
+    sizes: ['P', 'M', 'G', 'GG'],
+    description: 'Base completa com top sem costura e calcinha de cintura alta para máximo conforto.',
+    features: ['Duas peças', 'Cintura alta', 'Acabamento invisível'],
+    image: `${ref}/kit-top-cos-alto.jpg`,
+    gallery: [`${ref}/kit-top-cos-alto.jpg`, `${ref}/kit-top-cos-alto-detail.jpg`]
   },
   {
-    "id": "kit-viagem-minimal",
-    "name": "Kit Viagem Minimal",
-    "category": "kits",
-    "price": 189.9,
-    "compareAt": 229.9,
-    "badge": "Viagem",
-    "colors": [
-      "Misto"
-    ],
-    "sizes": [
-      "P",
-      "M",
-      "G"
-    ],
-    "description": "Peças compactas e versáteis para malas menores e rotinas corridas.",
-    "features": [
-      "Leve",
-      "Fácil de lavar",
-      "Secagem rápida"
-    ],
-    "image": "/assets/images/products/kit-viagem-minimal.jpg",
-    "gallery": [
-      "/assets/images/products/kit-viagem-minimal.jpg",
-      "/assets/images/products/kit-viagem-minimal-detail.jpg"
-    ]
+    id: 'case-protetor-silicone',
+    name: 'Case para Protetor de Silicone',
+    category: 'acessorios',
+    price: 39.9,
+    compareAt: 0,
+    badge: 'Acessório',
+    rating: 4.7,
+    reviews: 84,
+    colors: ['Off white'],
+    sizes: ['Único'],
+    description: 'Estojo rígido para guardar e proteger seus adesivos de silicone entre os usos.',
+    features: ['Compacto', 'Fácil de higienizar', 'Protege a aderência'],
+    image: `${ref}/case-silicone.jpg`,
+    gallery: [`${ref}/case-silicone.jpg`, `${ref}/case-silicone-detail.jpg`]
+  },
+  {
+    id: 'short-modelador-invisible',
+    name: 'Short Modelador Invisible',
+    category: 'modeladores',
+    price: 159.9,
+    compareAt: 199.9,
+    badge: 'Modelador',
+    rating: 4.8,
+    reviews: 129,
+    colors: ['Nude', 'Preto'],
+    sizes: ['P', 'M', 'G', 'GG'],
+    description: 'Short de compressão moderada com acabamento liso para vestidos e peças ajustadas.',
+    features: ['Não enrola', 'Cintura alta', 'Tecido respirável'],
+    image: '/assets/images/products/short-modelador-navia.jpg',
+    gallery: ['/assets/images/products/short-modelador-navia.jpg', '/assets/images/products/short-modelador-navia-detail.jpg']
   }
 ];
 
 export const categories = [
   {
-    "slug": "sutias",
-    "name": "Sutiãs",
-    "description": "Sustentação, conforto e acabamento invisível",
-    "image": "/assets/images/categories/sutias.jpg"
+    slug: 'sutias',
+    name: 'Sutiãs',
+    description: 'Sustentação, conforto e acabamento invisível.',
+    image: '/assets/reference/categories/sutias-mini.png'
   },
   {
-    "slug": "calcinhas",
-    "name": "Calcinhas",
-    "description": "Modelagens essenciais para todos os dias",
-    "image": "/assets/images/categories/calcinhas.jpg"
+    slug: 'calcinhas',
+    name: 'Calcinhas',
+    description: 'Modelagens leves para acompanhar todos os dias.',
+    image: '/assets/reference/categories/calcinhas-mini.png'
   },
   {
-    "slug": "conjuntos",
-    "name": "Conjuntos",
-    "description": "Peças coordenadas para montar looks completos",
-    "image": "/assets/images/categories/conjuntos.jpg"
+    slug: 'conjuntos',
+    name: 'Conjuntos',
+    description: 'Peças coordenadas para uma base completa.',
+    image: '/assets/reference/categories/conjuntos-mini.png'
   },
   {
-    "slug": "modeladores",
-    "name": "Modeladores",
-    "description": "Base lisa para vestidos e peças ajustadas",
-    "image": "/assets/images/categories/modeladores.jpg"
+    slug: 'modeladores',
+    name: 'Modeladores',
+    description: 'Acabamento liso e segurança sob a roupa.',
+    image: '/assets/images/categories/modeladores.jpg'
   },
   {
-    "slug": "acessorios",
-    "name": "Acessórios",
-    "description": "Soluções discretas para ajustes de produção",
-    "image": "/assets/images/categories/acessorios.jpg"
+    slug: 'acessorios',
+    name: 'Adesivos e acessórios',
+    description: 'Soluções discretas para decotes e produções.',
+    image: '/assets/reference/categories/adesivos-mini.png'
   },
   {
-    "slug": "kits",
-    "name": "Kits",
-    "description": "Combinações prontas com melhor custo-benefício",
-    "image": "/assets/images/categories/kits.jpg"
+    slug: 'kits',
+    name: 'Monte seu kit',
+    description: 'Combinações completas com melhor custo-benefício.',
+    image: '/assets/reference/categories/acessorios-mini.png'
   }
 ];

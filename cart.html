@@ -49,16 +49,16 @@
   <main>
 <section class="page-hero compact">
   <span class="eyebrow">Sacola</span>
-  <h1>Sacola local</h1>
-  <p>Checkout desativado. A sacola usa localStorage apenas para simular comportamento.</p>
+  <h1>Minha sacola</h1>
+  <p>Revise seus produtos antes de continuar para o pagamento.</p>
 </section>
 <section class="cart-page">
   <div data-cart-page-items></div>
   <aside class="cart-summary">
     <h2>Resumo</h2>
     <div class="cart-total"><span>Subtotal</span><strong data-cart-total>R$ 0,00</strong></div>
-    <p class="muted">No Shopify, este botão será substituído pelo checkout real.</p>
-    <button class="btn primary full" disabled>Finalizar compra depois</button>
+    <p class="muted">Frete e condições de pagamento são calculados na próxima etapa.</p>
+    <button class="btn primary full" data-checkout-notice>Finalizar compra</button>
     <button class="btn secondary full" data-clear-cart>Limpar sacola</button>
   </aside>
 </section>
