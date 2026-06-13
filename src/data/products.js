@@ -1,4 +1,8 @@
 const ref = '/assets/reference/products';
+const referenceGallery = (id, count = 8) => Array.from(
+  { length: count },
+  (_, index) => `/assets/reference/gallery/${id}/${String(index + 1).padStart(2, '0')}.jpg`
+);
 
 export const products = [
   {
@@ -16,7 +20,7 @@ export const products = [
     description: 'Proteção ultrafina, reutilizável e discreta para usar com decotes, transparências e peças sem sutiã.',
     features: ['Acabamento invisível', 'Reutilizável', 'Toque macio e aderência confortável'],
     image: `${ref}/protetor-silicone.jpg`,
-    gallery: [`${ref}/protetor-silicone.jpg`, `${ref}/protetor-silicone-detail.jpg`]
+    gallery: referenceGallery('protetor-silicone-ultrafino')
   },
   {
     id: 'sutia-silicone-invisivel',
@@ -33,7 +37,7 @@ export const products = [
     description: 'Sutiã adesivo com efeito de aproximação e acabamento invisível para roupas abertas nas costas.',
     features: ['Fecho frontal', 'Sem alças', 'Aderência reutilizável'],
     image: `${ref}/sutia-silicone.jpg`,
-    gallery: [`${ref}/sutia-silicone.jpg`, `${ref}/sutia-silicone-detail.jpg`]
+    gallery: referenceGallery('sutia-silicone-invisivel')
   },
   {
     id: 'sutia-comfort-slim',
@@ -50,7 +54,7 @@ export const products = [
     description: 'Sustentação leve e tecido respirável em uma modelagem macia que não marca sob a roupa.',
     features: ['Sem aro', 'Bojo anatômico', 'Laterais sem costura'],
     image: `${ref}/comfort-slim.jpg`,
-    gallery: [`${ref}/comfort-slim.jpg`, `${ref}/comfort-slim-detail.jpg`]
+    gallery: referenceGallery('sutia-comfort-slim')
   },
   {
     id: 'sutia-comfort-line',
@@ -67,7 +71,7 @@ export const products = [
     description: 'Top faixa com suporte delicado, toque macio e versatilidade para diferentes decotes.',
     features: ['Alças removíveis', 'Sem aro', 'Tecido de alta elasticidade'],
     image: `${ref}/comfort-line.jpg`,
-    gallery: [`${ref}/comfort-line.jpg`, `${ref}/comfort-line-detail.jpg`]
+    gallery: referenceGallery('sutia-comfort-line')
   },
   {
     id: 'top-segunda-pele',
@@ -83,7 +87,7 @@ export const products = [
     description: 'Top sem costura com sensação de segunda pele e sustentação para o uso diário.',
     features: ['Sem etiquetas', 'Não marca', 'Secagem rápida'],
     image: `${ref}/top-skin.jpg`,
-    gallery: [`${ref}/top-skin.jpg`, `${ref}/top-skin-detail.jpg`]
+    gallery: referenceGallery('top-segunda-pele')
   },
   {
     id: 'calcinha-cos-alto-skin',
@@ -99,7 +103,7 @@ export const products = [
     description: 'Cintura alta, cobertura confortável e acabamento suave para não marcar.',
     features: ['Forro em algodão', 'Cós macio', 'Acabamento invisível'],
     image: `${ref}/calcinha-cos-alto.jpg`,
-    gallery: [`${ref}/calcinha-cos-alto.jpg`, `${ref}/calcinha-cos-alto-detail.jpg`]
+    gallery: referenceGallery('calcinha-cos-alto-skin')
   },
   {
     id: 'calcinha-biquini-skin',
@@ -115,7 +119,7 @@ export const products = [
     description: 'Modelagem biquíni com laterais confortáveis e toque leve para todos os dias.',
     features: ['Não marca', 'Forro em algodão', 'Tecido respirável'],
     image: `${ref}/calcinha-biquini.jpg`,
-    gallery: [`${ref}/calcinha-biquini.jpg`, `${ref}/calcinha-biquini-detail.jpg`]
+    gallery: referenceGallery('calcinha-biquini-skin')
   },
   {
     id: 'kit-top-calcinha-biquini',
@@ -131,7 +135,7 @@ export const products = [
     description: 'Conjunto coordenado de segunda pele para uma base leve, confortável e sem marcas.',
     features: ['Duas peças', 'Economia no conjunto', 'Cores coordenadas'],
     image: `${ref}/kit-top-biquini.jpg`,
-    gallery: [`${ref}/kit-top-biquini.jpg`, `${ref}/kit-top-biquini-detail.jpg`]
+    gallery: referenceGallery('kit-top-calcinha-biquini')
   },
   {
     id: 'sutia-comfort-up',
@@ -147,7 +151,7 @@ export const products = [
     description: 'Sutiã sem aro com sustentação confortável e cobertura pensada para diferentes corpos.',
     features: ['Alças largas', 'Laterais firmes', 'Bojo sem costura'],
     image: `${ref}/comfort-up.jpg`,
-    gallery: [`${ref}/comfort-up.jpg`, `${ref}/comfort-up-detail.jpg`]
+    gallery: referenceGallery('sutia-comfort-up')
   },
   {
     id: 'fita-fashion-up',
@@ -163,7 +167,7 @@ export const products = [
     description: 'Fita corporal para criar sustentação sob decotes, costas abertas e roupas de festa.',
     features: ['Resistente ao suor', 'Recortável', 'Acompanha protetores'],
     image: `${ref}/fita-up.jpg`,
-    gallery: [`${ref}/fita-up.jpg`, `${ref}/fita-up-detail.jpg`]
+    gallery: referenceGallery('fita-fashion-up')
   },
   {
     id: 'kit-top-cos-alto',
@@ -179,7 +183,7 @@ export const products = [
     description: 'Base completa com top sem costura e calcinha de cintura alta para máximo conforto.',
     features: ['Duas peças', 'Cintura alta', 'Acabamento invisível'],
     image: `${ref}/kit-top-cos-alto.jpg`,
-    gallery: [`${ref}/kit-top-cos-alto.jpg`, `${ref}/kit-top-cos-alto-detail.jpg`]
+    gallery: referenceGallery('kit-top-cos-alto')
   },
   {
     id: 'case-protetor-silicone',
@@ -195,7 +199,7 @@ export const products = [
     description: 'Estojo rígido para guardar e proteger seus adesivos de silicone entre os usos.',
     features: ['Compacto', 'Fácil de higienizar', 'Protege a aderência'],
     image: `${ref}/case-silicone.jpg`,
-    gallery: [`${ref}/case-silicone.jpg`, `${ref}/case-silicone-detail.jpg`]
+    gallery: referenceGallery('case-protetor-silicone', 2)
   },
   {
     id: 'short-modelador-invisible',

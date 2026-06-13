@@ -209,29 +209,359 @@ function initProductPage() {
   if (!page) return;
   const id = new URL(location.href).searchParams.get('id') || products[0].id;
   const product = productById(id) || products[0];
-  document.title = `${product.name} | Mayra Moda Íntima`;
-  $('[data-product-gallery]').innerHTML = product.gallery
-    .map((src) => `<img src="${src}" alt="${product.name}" />`)
-    .join('');
-  $('[data-product-info]').innerHTML = `
-    <span class="eyebrow">Mayra • ${collectionMeta(product.category).name}</span>
-    <h1>${product.name}</h1>
-    ${ratingMarkup(product)}
-    <div class="price product-price"><strong>${BRL.format(product.price)}</strong>${product.compareAt ? `<s>${BRL.format(product.compareAt)}</s>` : ''}</div>
-    <p class="installments">ou 3x de ${BRL.format(product.price / 3)} sem juros</p>
-    <p>${product.description}</p>
-    <div class="variant-group"><label>Cor</label><div class="pill-row">${product.colors.map((color, index) => `<button class="${index === 0 ? 'is-active' : ''}" type="button">${color}</button>`).join('')}</div></div>
-    <div class="variant-group"><label>Tamanho</label><div class="pill-row">${product.sizes.map((size, index) => `<button class="${index === 0 ? 'is-active' : ''}" type="button">${size}</button>`).join('')}</div></div>
-    <button class="btn primary full product-buy" data-add-cart="${product.id}">Adicionar à sacola</button>
-    <div class="purchase-benefits"><span>Frete grátis acima de R$ 299</span><span>Troca fácil em até 7 dias</span></div>
-    <ul class="feature-list">${product.features.map((feature) => `<li>${feature}</li>`).join('')}</ul>`;
+  const gallery = product.gallery?.length ? product.gallery : [product.image];
+  const category = collectionMeta(product.category);
+  const colorValues = {
+    Baunilha: '#e5c8ad',
+    Caramelo: '#a86f52',
+    Preto: '#171313',
+    'Rosé': '#e9aeb5',
+    Bege: '#d3ad86',
+    Nude: '#c99478',
+    'Off white': '#f2efe8'
+  };
 
-  $$('.pill-row button').forEach((button) => {
-    button.addEventListener('click', () => {
-      $$('.pill-row button', button.parentElement).forEach((item) => item.classList.remove('is-active'));
-      button.classList.add('is-active');
+  document.title = `${product.name} | Mayra Moda Íntima`;
+  page.innerHTML = `
+    <div class="product-layout">
+      <section class="product-gallery" aria-label="Galeria de ${product.name}">
+        <div class="product-gallery__viewport" data-gallery-viewport>
+          <div class="product-gallery__track">
+            ${gallery.map((src, index) => `
+              <figure class="product-gallery__slide" data-gallery-slide="${index}">
+                <img
+                  src="${src}"
+                  alt="${product.name} - foto ${index + 1} de ${gallery.length}"
+                  ${index === 0 ? 'fetchpriority="high"' : 'loading="lazy"'}
+                  draggable="false"
+                />
+              </figure>`).join('')}
+          </div>
+          <button class="gallery-control gallery-control--previous" type="button" data-gallery-previous aria-label="Foto anterior">‹</button>
+          <button class="gallery-control gallery-control--next" type="button" data-gallery-next aria-label="Próxima foto">›</button>
+          <button class="gallery-zoom" type="button" data-gallery-open aria-label="Abrir foto em tela cheia">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="10.5" cy="10.5" r="5.5"/><path d="m15 15 4.5 4.5M10.5 8v5M8 10.5h5"/></svg>
+          </button>
+          <span class="gallery-counter" data-gallery-counter>1 / ${gallery.length}</span>
+        </div>
+        <div class="product-gallery__thumbnails" data-gallery-thumbnails aria-label="Escolher foto">
+          ${gallery.map((src, index) => `
+            <button class="gallery-thumbnail ${index === 0 ? 'is-active' : ''}" type="button" data-gallery-thumbnail="${index}" aria-label="Ver foto ${index + 1}">
+              <img src="${src}" alt="" draggable="false" />
+            </button>`).join('')}
+        </div>
+        <p class="gallery-hint">Arraste para o lado ou toque na foto para ampliar.</p>
+      </section>
+
+      <aside class="product-info">
+        <span class="eyebrow">Mayra · ${category.name}</span>
+        <h1>${product.name}</h1>
+        ${ratingMarkup(product)}
+        <div class="price product-price">
+          <strong>${BRL.format(product.price)}</strong>
+          ${product.compareAt ? `<s>${BRL.format(product.compareAt)}</s>` : ''}
+        </div>
+        <p class="installments">ou 3x de ${BRL.format(product.price / 3)} sem juros</p>
+
+        <div class="variant-group">
+          <div class="variant-label"><strong>Cor:</strong> <span data-selected-color>${product.colors[0]}</span></div>
+          <div class="swatch-row">
+            ${product.colors.map((color, index) => `
+              <button
+                class="color-swatch ${index === 0 ? 'is-active' : ''}"
+                type="button"
+                data-color="${color}"
+                aria-label="${color}"
+                aria-pressed="${index === 0}"
+                title="${color}"
+              ><span style="--swatch-color: ${colorValues[color] || '#d7b39b'}"></span></button>`).join('')}
+          </div>
+        </div>
+
+        <div class="variant-group">
+          <div class="variant-label"><strong>Tamanho:</strong> <span data-selected-size>${product.sizes[0]}</span></div>
+          <div class="pill-row" data-size-options>
+            ${product.sizes.map((size, index) => `<button class="${index === 0 ? 'is-active' : ''}" type="button" data-size="${size}" aria-pressed="${index === 0}">${size}</button>`).join('')}
+          </div>
+        </div>
+
+        <div class="variant-group kit-options">
+          <div class="variant-label"><strong>Escolha o kit</strong> <span>(leve mais, pague menos)</span></div>
+          <div class="pill-row" data-kit-options>
+            <button class="is-active" type="button" aria-pressed="true">1 peça</button>
+            <button type="button" aria-pressed="false">2 peças: mesma cor</button>
+            <button type="button" aria-pressed="false">2 peças: cores diferentes</button>
+          </div>
+        </div>
+
+        <button class="btn primary full product-buy" data-add-cart="${product.id}">Comprar agora</button>
+        <div class="product-service">
+          <p><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 6h11v11H3zM14 10h4l3 3v4h-7z"/><circle cx="7" cy="18" r="2"/><circle cx="18" cy="18" r="2"/></svg><strong>Frete grátis</strong> acima de R$ 299</p>
+          <a href="/pages/guia-de-tamanhos.html"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m4 15 11-11 5 5-11 11H4v-5Z"/><path d="m13 6 5 5M7 15l2 2M10 12l2 2"/></svg> Guia de tamanhos</a>
+        </div>
+
+        <div class="product-description">
+          <p>${product.description}</p>
+          <ul>${product.features.map((feature) => `<li>${feature}</li>`).join('')}</ul>
+        </div>
+        <div class="product-details">
+          <details open>
+            <summary>Detalhes do produto</summary>
+            <p>Modelagem pensada para acompanhar o corpo com conforto, segurança e acabamento discreto sob a roupa.</p>
+          </details>
+          <details>
+            <summary>Cuidados e conservação</summary>
+            <p>Lave à mão com sabão neutro, seque naturalmente e guarde em local protegido.</p>
+          </details>
+          <details>
+            <summary>Entrega e trocas</summary>
+            <p>Envio calculado no carrinho e primeira troca facilitada em até 7 dias após o recebimento.</p>
+          </details>
+        </div>
+      </aside>
+    </div>
+
+    <div class="product-lightbox" data-product-lightbox role="dialog" aria-modal="true" aria-label="Visualizador de fotos" aria-hidden="true">
+      <button class="lightbox-close" type="button" data-lightbox-close aria-label="Fechar visualizador">${icons.close}</button>
+      <button class="lightbox-arrow lightbox-arrow--previous" type="button" data-lightbox-previous aria-label="Foto anterior">‹</button>
+      <div class="lightbox-stage" data-lightbox-stage>
+        <img data-lightbox-image src="${gallery[0]}" alt="${product.name}" draggable="false" />
+      </div>
+      <button class="lightbox-arrow lightbox-arrow--next" type="button" data-lightbox-next aria-label="Próxima foto">›</button>
+      <div class="lightbox-toolbar">
+        <button type="button" data-lightbox-zoom-out aria-label="Diminuir zoom">−</button>
+        <button type="button" data-lightbox-reset aria-label="Redefinir zoom"><span data-lightbox-zoom>100%</span></button>
+        <button type="button" data-lightbox-zoom-in aria-label="Aumentar zoom">+</button>
+        <span data-lightbox-counter>1 / ${gallery.length}</span>
+      </div>
+    </div>`;
+
+  const viewport = $('[data-gallery-viewport]', page);
+  const thumbnails = $$('[data-gallery-thumbnail]', page);
+  const thumbnailStrip = $('[data-gallery-thumbnails]', page);
+  const galleryCounter = $('[data-gallery-counter]', page);
+  const lightbox = $('[data-product-lightbox]', page);
+  const lightboxImage = $('[data-lightbox-image]', lightbox);
+  const lightboxCounter = $('[data-lightbox-counter]', lightbox);
+  const lightboxZoom = $('[data-lightbox-zoom]', lightbox);
+  const lightboxStage = $('[data-lightbox-stage]', lightbox);
+  let galleryIndex = 0;
+  let lightboxIndex = 0;
+  let draggedGallery = false;
+  let scrollFrame = 0;
+  let zoom = 1;
+  let imageX = 0;
+  let imageY = 0;
+  let imageDrag = null;
+  let previousFocus = null;
+
+  function normalizeIndex(index) {
+    return (index + gallery.length) % gallery.length;
+  }
+
+  function updateGallery(index) {
+    galleryIndex = normalizeIndex(index);
+    thumbnails.forEach((thumbnail, itemIndex) => {
+      const active = itemIndex === galleryIndex;
+      thumbnail.classList.toggle('is-active', active);
+      thumbnail.setAttribute('aria-current', active ? 'true' : 'false');
+    });
+    galleryCounter.textContent = `${galleryIndex + 1} / ${gallery.length}`;
+    const activeThumbnail = thumbnails[galleryIndex];
+    const targetLeft = activeThumbnail.offsetLeft - (thumbnailStrip.clientWidth - activeThumbnail.offsetWidth) / 2;
+    thumbnailStrip.scrollTo({ left: Math.max(0, targetLeft), behavior: 'smooth' });
+  }
+
+  function goToGallery(index, behavior = 'smooth') {
+    const nextIndex = normalizeIndex(index);
+    viewport.scrollTo({ left: nextIndex * viewport.clientWidth, behavior });
+    updateGallery(nextIndex);
+  }
+
+  function renderZoom() {
+    lightboxImage.style.transform = `translate3d(${imageX}px, ${imageY}px, 0) scale(${zoom})`;
+    lightboxImage.classList.toggle('is-zoomed', zoom > 1);
+    lightboxZoom.textContent = `${Math.round(zoom * 100)}%`;
+  }
+
+  function resetZoom() {
+    zoom = 1;
+    imageX = 0;
+    imageY = 0;
+    renderZoom();
+  }
+
+  function setLightboxImage(index) {
+    lightboxIndex = normalizeIndex(index);
+    lightboxImage.src = gallery[lightboxIndex];
+    lightboxImage.alt = `${product.name} - foto ${lightboxIndex + 1} de ${gallery.length}`;
+    lightboxCounter.textContent = `${lightboxIndex + 1} / ${gallery.length}`;
+    resetZoom();
+    const nextImage = new Image();
+    nextImage.src = gallery[normalizeIndex(lightboxIndex + 1)];
+  }
+
+  function openLightbox(index = galleryIndex) {
+    previousFocus = document.activeElement;
+    setLightboxImage(index);
+    lightbox.classList.add('is-open');
+    lightbox.setAttribute('aria-hidden', 'false');
+    document.body.classList.add('lightbox-open');
+    $('[data-lightbox-close]', lightbox)?.focus();
+  }
+
+  function closeLightbox() {
+    lightbox.classList.remove('is-open');
+    lightbox.setAttribute('aria-hidden', 'true');
+    document.body.classList.remove('lightbox-open');
+    resetZoom();
+    previousFocus?.focus?.();
+  }
+
+  function zoomBy(amount) {
+    zoom = Math.min(4, Math.max(1, zoom + amount));
+    if (zoom === 1) {
+      imageX = 0;
+      imageY = 0;
+    }
+    renderZoom();
+  }
+
+  thumbnails.forEach((thumbnail) => {
+    thumbnail.addEventListener('click', () => goToGallery(Number(thumbnail.dataset.galleryThumbnail)));
+  });
+
+  $('[data-gallery-previous]', page)?.addEventListener('click', () => goToGallery(galleryIndex - 1));
+  $('[data-gallery-next]', page)?.addEventListener('click', () => goToGallery(galleryIndex + 1));
+  $('[data-gallery-open]', page)?.addEventListener('click', () => openLightbox(galleryIndex));
+
+  $$('[data-gallery-slide]', page).forEach((slide) => {
+    slide.addEventListener('click', () => {
+      if (!draggedGallery) openLightbox(Number(slide.dataset.gallerySlide));
     });
   });
+
+  viewport.addEventListener('scroll', () => {
+    cancelAnimationFrame(scrollFrame);
+    scrollFrame = requestAnimationFrame(() => {
+      updateGallery(Math.round(viewport.scrollLeft / Math.max(viewport.clientWidth, 1)));
+    });
+  }, { passive: true });
+
+  viewport.addEventListener('pointerdown', (event) => {
+    if (event.pointerType !== 'mouse' || event.button !== 0) return;
+    draggedGallery = false;
+    viewport.dataset.dragStart = String(event.clientX);
+    viewport.dataset.scrollStart = String(viewport.scrollLeft);
+    viewport.setPointerCapture(event.pointerId);
+    viewport.classList.add('is-dragging');
+  });
+
+  viewport.addEventListener('pointermove', (event) => {
+    if (!viewport.hasPointerCapture(event.pointerId)) return;
+    const distance = event.clientX - Number(viewport.dataset.dragStart);
+    if (Math.abs(distance) > 6) draggedGallery = true;
+    viewport.scrollLeft = Number(viewport.dataset.scrollStart) - distance;
+  });
+
+  function finishGalleryDrag(event) {
+    if (!viewport.hasPointerCapture(event.pointerId)) return;
+    viewport.releasePointerCapture(event.pointerId);
+    viewport.classList.remove('is-dragging');
+    goToGallery(Math.round(viewport.scrollLeft / Math.max(viewport.clientWidth, 1)));
+    window.setTimeout(() => { draggedGallery = false; }, 0);
+  }
+
+  viewport.addEventListener('pointerup', finishGalleryDrag);
+  viewport.addEventListener('pointercancel', finishGalleryDrag);
+
+  $$('[data-size-options] button', page).forEach((button) => {
+    button.addEventListener('click', () => {
+      $$('[data-size-options] button', page).forEach((item) => {
+        item.classList.toggle('is-active', item === button);
+        item.setAttribute('aria-pressed', item === button ? 'true' : 'false');
+      });
+      $('[data-selected-size]', page).textContent = button.dataset.size;
+    });
+  });
+
+  $$('.color-swatch', page).forEach((button) => {
+    button.addEventListener('click', () => {
+      $$('.color-swatch', page).forEach((item) => {
+        item.classList.toggle('is-active', item === button);
+        item.setAttribute('aria-pressed', item === button ? 'true' : 'false');
+      });
+      $('[data-selected-color]', page).textContent = button.dataset.color;
+    });
+  });
+
+  $$('[data-kit-options] button', page).forEach((button) => {
+    button.addEventListener('click', () => {
+      $$('[data-kit-options] button', page).forEach((item) => {
+        item.classList.toggle('is-active', item === button);
+        item.setAttribute('aria-pressed', item === button ? 'true' : 'false');
+      });
+    });
+  });
+
+  $('[data-lightbox-close]', lightbox)?.addEventListener('click', closeLightbox);
+  $('[data-lightbox-previous]', lightbox)?.addEventListener('click', () => setLightboxImage(lightboxIndex - 1));
+  $('[data-lightbox-next]', lightbox)?.addEventListener('click', () => setLightboxImage(lightboxIndex + 1));
+  $('[data-lightbox-zoom-in]', lightbox)?.addEventListener('click', () => zoomBy(.5));
+  $('[data-lightbox-zoom-out]', lightbox)?.addEventListener('click', () => zoomBy(-.5));
+  $('[data-lightbox-reset]', lightbox)?.addEventListener('click', resetZoom);
+
+  lightbox.addEventListener('click', (event) => {
+    if (event.target === lightbox) closeLightbox();
+  });
+
+  lightboxStage.addEventListener('wheel', (event) => {
+    if (!lightbox.classList.contains('is-open')) return;
+    event.preventDefault();
+    zoomBy(event.deltaY < 0 ? .25 : -.25);
+  }, { passive: false });
+
+  lightboxStage.addEventListener('dblclick', () => {
+    zoom = zoom > 1 ? 1 : 2.25;
+    imageX = 0;
+    imageY = 0;
+    renderZoom();
+  });
+
+  lightboxStage.addEventListener('pointerdown', (event) => {
+    if (zoom <= 1 || event.button !== 0) return;
+    imageDrag = { x: event.clientX, y: event.clientY, imageX, imageY };
+    lightboxStage.setPointerCapture(event.pointerId);
+    lightboxStage.classList.add('is-panning');
+  });
+
+  lightboxStage.addEventListener('pointermove', (event) => {
+    if (!imageDrag || !lightboxStage.hasPointerCapture(event.pointerId)) return;
+    imageX = imageDrag.imageX + event.clientX - imageDrag.x;
+    imageY = imageDrag.imageY + event.clientY - imageDrag.y;
+    renderZoom();
+  });
+
+  function finishImageDrag(event) {
+    if (!lightboxStage.hasPointerCapture(event.pointerId)) return;
+    lightboxStage.releasePointerCapture(event.pointerId);
+    lightboxStage.classList.remove('is-panning');
+    imageDrag = null;
+  }
+
+  lightboxStage.addEventListener('pointerup', finishImageDrag);
+  lightboxStage.addEventListener('pointercancel', finishImageDrag);
+
+  document.addEventListener('keydown', (event) => {
+    if (!lightbox.classList.contains('is-open')) return;
+    if (event.key === 'Escape') closeLightbox();
+    if (event.key === 'ArrowLeft') setLightboxImage(lightboxIndex - 1);
+    if (event.key === 'ArrowRight') setLightboxImage(lightboxIndex + 1);
+    if (event.key === '+' || event.key === '=') zoomBy(.5);
+    if (event.key === '-') zoomBy(-.5);
+  });
+
+  window.addEventListener('resize', () => goToGallery(galleryIndex, 'auto'));
 }
 
 function addToCart(id, quantity = 1) {
