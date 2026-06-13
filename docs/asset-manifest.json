@@ -1,0 +1,81 @@
+{
+  "brand": {
+    "logo_pdf_source": "LOGOTIPO.pdf",
+    "primary_color": "#4B1219",
+    "primary_font": "Cinzel",
+    "secondary_font": "Montserrat",
+    "notes": "Não há arquivos de fonte embarcados no projeto. Use Cinzel e Montserrat via Shopify/Google Fonts ou carregue fontes licenciadas no tema."
+  },
+  "assets": [
+    {
+      "path": "assets/logo/logo-mayra-full.png",
+      "usage": "Logo em fundo borgonha",
+      "required_size": "aprox. 800x600 ou SVG vetorial",
+      "format": "PNG/SVG",
+      "replace_with": "versão oficial do logo com fundo transparente quando possível"
+    },
+    {
+      "path": "assets/images/banners/hero-desktop.jpg",
+      "usage": "poster do hero desktop",
+      "required_size": "1920x1080",
+      "format": "JPG/WebP",
+      "replace_with": "imagem editorial horizontal"
+    },
+    {
+      "path": "assets/videos/hero-desktop.mp4",
+      "usage": "vídeo do hero desktop",
+      "required_size": "1920x1080, 16:9",
+      "format": "MP4 H.264, até 8-12 MB ideal",
+      "replace_with": "vídeo curto de campanha"
+    },
+    {
+      "path": "assets/images/banners/hero-mobile.jpg",
+      "usage": "poster do hero mobile",
+      "required_size": "1080x1350, 4:5",
+      "format": "JPG/WebP",
+      "replace_with": "imagem vertical/mobile"
+    },
+    {
+      "path": "assets/videos/hero-mobile.mp4",
+      "usage": "vídeo do hero mobile",
+      "required_size": "1080x1350, 4:5",
+      "format": "MP4 H.264",
+      "replace_with": "vídeo vertical curto"
+    },
+    {
+      "path": "assets/images/categories/*.jpg",
+      "usage": "banners das coleções",
+      "required_size": "900x1200, 3:4",
+      "format": "JPG/WebP",
+      "replace_with": "imagem por categoria"
+    },
+    {
+      "path": "assets/images/products/*.jpg",
+      "usage": "produto e galeria",
+      "required_size": "1200x1600, 3:4",
+      "format": "JPG/WebP/PNG",
+      "replace_with": "foto principal e foto detalhe por produto"
+    },
+    {
+      "path": "assets/images/banners/editorial-01.jpg",
+      "usage": "faixa editorial intermediária",
+      "required_size": "1600x900, 16:9",
+      "format": "JPG/WebP",
+      "replace_with": "foto de campanha ou composição"
+    },
+    {
+      "path": "assets/videos/story-vertical-01.mp4",
+      "usage": "bloco de prova social/story",
+      "required_size": "1080x1920, 9:16",
+      "format": "MP4 H.264",
+      "replace_with": "reels/depoimento/vídeo de produto"
+    },
+    {
+      "path": "assets/videos/story-vertical-02.mp4",
+      "usage": "bloco de prova social/story",
+      "required_size": "1080x1920, 9:16",
+      "format": "MP4 H.264",
+      "replace_with": "reels/depoimento/vídeo de produto"
+    }
+  ]
+}

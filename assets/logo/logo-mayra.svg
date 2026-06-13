@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 250" role="img" aria-labelledby="title">
+<title id="title">Mayra Moda Íntima</title>
+<defs>
+  <linearGradient id="gold" x1="0" x2="1" y1="0" y2="0">
+    <stop offset="0" stop-color="#fff1b8"/><stop offset="0.45" stop-color="#e8c46a"/><stop offset="1" stop-color="#b4822f"/>
+  </linearGradient>
+</defs>
+<rect width="720" height="250" fill="none"/>
+<g fill="none" stroke="url(#gold)" stroke-width="8" stroke-linecap="round" stroke-linejoin="round" transform="translate(360 62)">
+  <path d="M0 58 C-45 -42 -120 -72 -116 55 C-114 93 -87 112 -52 101"/>
+  <path d="M0 58 C45 -42 120 -72 116 55 C114 93 87 112 52 101"/>
+  <path d="M0 58 C-21 92 -21 123 0 126 C21 123 21 92 0 58Z"/>
+  <path d="M-84 57 C-36 48 -18 76 0 92"/>
+  <path d="M84 57 C36 48 18 76 0 92"/>
+</g>
+<text x="360" y="183" fill="url(#gold)" text-anchor="middle" font-family="Cinzel, Georgia, serif" font-size="86" letter-spacing="18">MAYRA</text>
+<text x="360" y="222" fill="url(#gold)" text-anchor="middle" font-family="Montserrat, Arial, sans-serif" font-size="24" letter-spacing="14">MODA ÍNTIMA</text>
+</svg>

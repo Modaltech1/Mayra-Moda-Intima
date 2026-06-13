@@ -1,0 +1,100 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Sobre | Mayra Moda Íntima</title>
+  <meta name="description" content="Protótipo local de ecommerce Mayra Moda Íntima." />
+  <link rel="icon" href="/assets/logo/logo-mayra.svg" type="image/svg+xml" />
+  <link rel="stylesheet" href="/src/styles.css" />
+</head>
+<body class="">
+  <div class="announcement">Frete simulado grátis acima de R$ 299 • Trocas em até 7 dias • Protótipo local</div>
+  <header class="site-header" data-header>
+    <button class="icon-btn menu-toggle" aria-label="Abrir menu" data-menu-toggle>☰</button>
+    <a class="brand" href="/" aria-label="Mayra Moda Íntima"><img src="/assets/logo/logo-mayra.svg" alt="Mayra Moda Íntima" /></a>
+    <nav class="main-nav" data-main-nav>
+<a href="/collections/sutias.html">Sutiãs</a>
+<a href="/collections/calcinhas.html">Calcinhas</a>
+<a href="/collections/conjuntos.html">Conjuntos</a>
+<a href="/collections/modeladores.html">Modeladores</a>
+<a href="/collections/acessorios.html">Acessórios</a>
+<a href="/collections/kits.html">Kits</a>
+</nav>
+    <div class="header-actions">
+      <button class="ghost-btn" data-search-toggle>Buscar</button>
+      <a class="cart-link" href="/cart.html">Sacola <span data-cart-count>0</span></a>
+    </div>
+  </header>
+  <aside class="mobile-menu" data-mobile-menu>
+    <button class="icon-btn close" data-menu-toggle aria-label="Fechar menu">×</button>
+    <a class="brand side" href="/"><img src="/assets/logo/logo-mayra.svg" alt="Mayra" /></a>
+    
+<a href="/collections/sutias.html">Sutiãs</a>
+<a href="/collections/calcinhas.html">Calcinhas</a>
+<a href="/collections/conjuntos.html">Conjuntos</a>
+<a href="/collections/modeladores.html">Modeladores</a>
+<a href="/collections/acessorios.html">Acessórios</a>
+<a href="/collections/kits.html">Kits</a>
+
+    <a href="/pages/sobre.html">Sobre</a>
+    <a href="/pages/perguntas-frequentes.html">FAQ</a>
+  </aside>
+  <div class="search-panel" data-search-panel>
+    <button class="icon-btn close" data-search-toggle aria-label="Fechar busca">×</button>
+    <label for="siteSearch">Buscar no catálogo</label>
+    <input id="siteSearch" data-search-input type="search" placeholder="Ex.: sutiã, calcinha, kit..." />
+    <div class="search-results" data-search-results></div>
+  </div>
+  <main>
+<section class="page-hero"><span class="eyebrow">Marca</span><h1>Mayra Moda Íntima</h1><p>Uma base visual premium para validar ecommerce antes da etapa Shopify.</p></section>
+<section class="editorial two-col"><img src="/assets/images/banners/about-brand.jpg" alt="Identidade Mayra"/><div class="editorial-copy"><h2>Identidade aplicada</h2><p>Paleta borgonha, detalhes dourados, títulos em estilo editorial e textos em fonte sans-serif. Tudo configurado em variáveis CSS para troca rápida.</p><p>Substitua este texto pela história real da marca, diferenciais, produção, política de troca e posicionamento.</p></div></section>
+<section class="section"><h2>Blocos prontos</h2><div class="feature-cards"><article><h3>Manifesto</h3><p>Espaço para narrativa de marca.</p></article><article><h3>Materiais</h3><p>Espaço para tecido, composição e cuidados.</p></article><article><h3>Atendimento</h3><p>Espaço para WhatsApp, política e suporte.</p></article></div></section>
+</main>
+  <section class="newsletter">
+    <div>
+      <span class="eyebrow">Lista Mayra</span>
+      <h2>Receba prévias de coleção e ofertas controladas.</h2>
+      <p>Campo apenas visual nesta versão local. No Shopify, conectar ao app de e-mail marketing.</p>
+    </div>
+    <form onsubmit="event.preventDefault(); this.classList.add('sent'); this.querySelector('button').textContent='Cadastrado';">
+      <input type="email" placeholder="seu@email.com" aria-label="E-mail" required />
+      <button class="btn primary">Cadastrar</button>
+    </form>
+  </section>
+  <footer class="site-footer">
+    <div class="footer-logo"><img src="/assets/logo/logo-mayra.svg" alt="Mayra" /></div>
+    <div>
+      <h3>Comprar</h3>
+      <a href="/collections/sutias.html">Sutiãs</a>
+      <a href="/collections/calcinhas.html">Calcinhas</a>
+      <a href="/collections/conjuntos.html">Conjuntos</a>
+      <a href="/collections/kits.html">Kits</a>
+    </div>
+    <div>
+      <h3>Marca</h3>
+      <a href="/pages/sobre.html">Sobre a Mayra</a>
+      <a href="/pages/avaliacoes.html">Avaliações</a>
+      <a href="/blog/index.html">Conteúdo</a>
+      <a href="/pages/guia-de-tamanhos.html">Guia de tamanhos</a>
+    </div>
+    <div>
+      <h3>Atendimento</h3>
+      <a href="/pages/perguntas-frequentes.html">Perguntas frequentes</a>
+      <a href="/cart.html">Sacola</a>
+      <p>Protótipo local. Sem checkout real.</p>
+    </div>
+  </footer>
+  <div class="cart-drawer" data-cart-drawer aria-hidden="true">
+    <div class="cart-drawer__panel">
+      <button class="icon-btn close" data-cart-close aria-label="Fechar sacola">×</button>
+      <h2>Sacola</h2>
+      <div data-cart-drawer-items></div>
+      <div class="cart-total"><span>Total</span><strong data-cart-total>R$ 0,00</strong></div>
+      <a class="btn primary full" href="/cart.html">Ver sacola</a>
+      <button class="btn secondary full" data-cart-close>Continuar comprando</button>
+    </div>
+  </div>
+  <script type="module" src="/src/main.js"></script>
+</body>
+</html>
