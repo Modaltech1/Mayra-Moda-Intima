@@ -117,7 +117,7 @@ function buildShell() {
   if (!$('.whatsapp-float')) {
     document.body.insertAdjacentHTML(
       'beforeend',
-      '<a class="whatsapp-float" href="#" aria-label="Falar com a Mayra no WhatsApp"><span>◔</span></a>'
+      '<a class="whatsapp-float" href="#" aria-label="Falar com a Mayra no WhatsApp"><img src="/assets/images/icons/whatsapp.png" alt="" /></a>'
     );
   }
 }

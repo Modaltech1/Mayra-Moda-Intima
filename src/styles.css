@@ -954,24 +954,26 @@ h3 {
 
 .whatsapp-float {
   align-items: center;
-  background: var(--green);
+  background: #2dcc36;
   border: 4px solid var(--white);
   border-radius: 50%;
   bottom: 28px;
   box-shadow: var(--shadow);
-  color: var(--white);
   display: flex;
-  font-size: 2rem;
   height: 66px;
   justify-content: center;
+  overflow: hidden;
   position: fixed;
   right: 28px;
   width: 66px;
   z-index: 45;
 }
 
-.whatsapp-float span {
-  transform: rotate(-35deg);
+.whatsapp-float img {
+  flex: 0 0 auto;
+  height: 150%;
+  max-width: none;
+  width: 150%;
 }
 
 .site-toast {
