@@ -20,6 +20,13 @@ const icons = {
   close: '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="m5 5 14 14M19 5 5 19"/></svg>'
 };
 
+const announcementMessages = [
+  'Frete grátis acima de R$ 299',
+  'Troca fácil em até 7 dias',
+  '5% de desconto no pagamento via Pix',
+  'Atendimento próximo para escolher sua peça'
+];
+
 function productUrl(id) {
   return `/products/product.html?id=${encodeURIComponent(id)}`;
 }
@@ -34,7 +41,10 @@ function collectionMeta(slug) {
 function buildShell() {
   const announcement = $('.announcement');
   if (announcement) {
-    announcement.innerHTML = '<span>←</span><strong>Frete grátis acima de R$ 299</strong><span>→</span>';
+    announcement.innerHTML = `
+      <button type="button" data-announcement-previous aria-label="Mensagem anterior">←</button>
+      <strong data-announcement-text aria-live="polite">${announcementMessages[0]}</strong>
+      <button type="button" data-announcement-next aria-label="Próxima mensagem">→</button>`;
   }
 
   const header = $('[data-header]');
@@ -89,29 +99,51 @@ function buildShell() {
 
   const newsletter = $('.newsletter');
   if (newsletter) {
-    newsletter.innerHTML = `
-      <div>
-        <span class="eyebrow">Fique por dentro</span>
-        <h2>Novidades e ofertas no seu e-mail.</h2>
-        <p>Cadastre-se para receber lançamentos, dicas e condições especiais.</p>
-      </div>
-      <form data-newsletter-form>
-        <input type="email" placeholder="Digite seu e-mail" aria-label="E-mail" required />
-        <button class="btn primary">Quero receber</button>
-      </form>`;
+    newsletter.hidden = true;
   }
 
   const footer = $('.site-footer');
   if (footer) {
     footer.innerHTML = `
-      <div class="footer-logo">
+      <div class="footer-logo footer-brand">
         <img src="/assets/logo/logo-mayra.svg" alt="Mayra Moda Íntima" />
-        <p>Conforto e liberdade para você se vestir do seu jeito.</p>
       </div>
-      <div><h3>Comprar</h3><a href="/collections/all.html">Todos os produtos</a><a href="/collections/sutias.html">Sutiãs</a><a href="/collections/calcinhas.html">Calcinhas</a><a href="/collections/kits.html">Kits</a></div>
-      <div><h3>Institucional</h3><a href="/pages/sobre.html">Sobre a Mayra</a><a href="/pages/avaliacoes.html">Avaliações</a><a href="/blog/index.html">Conteúdo</a><a href="/pages/guia-de-tamanhos.html">Guia de tamanhos</a></div>
-      <div><h3>Ajuda</h3><a href="/pages/perguntas-frequentes.html">Perguntas frequentes</a><a href="/cart.html">Minha sacola</a><a href="/pages/perguntas-frequentes.html">Trocas e devoluções</a><p>Atendimento de segunda a sexta.</p></div>
-      <div class="footer-bottom"><span>© 2026 Mayra Moda Íntima</span><span>Compra segura • Pix • Cartão</span></div>`;
+      <div class="footer-newsletter">
+        <h3>Quer um cupom para a primeira compra?</h3>
+        <p>Cadastre seu melhor e-mail para receber novidades e condições especiais. Não enviamos spam.</p>
+        <form data-newsletter-form>
+          <input type="email" placeholder="Seu e-mail" aria-label="Seu e-mail" required />
+          <button type="submit" aria-label="Cadastrar e-mail">→</button>
+        </form>
+      </div>
+      <div class="footer-column">
+        <h3>Precisa de ajuda?</h3>
+        <a href="/pages/perguntas-frequentes.html">Rastreie seu pedido</a>
+        <a href="/pages/perguntas-frequentes.html">Dúvidas</a>
+        <a href="/pages/perguntas-frequentes.html">Políticas de frete</a>
+        <a href="/pages/perguntas-frequentes.html">Trocas e devoluções</a>
+        <a href="/pages/perguntas-frequentes.html">Privacidade</a>
+      </div>
+      <div class="footer-column">
+        <h3>Mais sobre nós</h3>
+        <a href="/collections/all.html">Nossos produtos</a>
+        <a href="/pages/avaliacoes.html">Todas as avaliações</a>
+        <a href="/pages/sobre.html">Sobre a Mayra</a>
+        <a href="/pages/guia-de-tamanhos.html">Guia de tamanhos</a>
+        <a href="/blog/index.html">Blog</a>
+      </div>
+      <div class="footer-social">
+        <h3>Segue a gente</h3>
+        <div class="footer-social__links">
+          <a href="#" aria-label="Instagram"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3.5" y="3.5" width="17" height="17" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.8" r=".8"/></svg></a>
+          <a href="#" aria-label="YouTube"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M21 8.2a3 3 0 0 0-2.1-2.1C17 5.6 12 5.6 12 5.6s-5 0-6.9.5A3 3 0 0 0 3 8.2 31 31 0 0 0 2.6 12 31 31 0 0 0 3 15.8a3 3 0 0 0 2.1 2.1c1.9.5 6.9.5 6.9.5s5 0 6.9-.5a3 3 0 0 0 2.1-2.1 31 31 0 0 0 .4-3.8 31 31 0 0 0-.4-3.8Z"/><path d="m10 9 5 3-5 3Z"/></svg></a>
+          <a href="#" aria-label="TikTok"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M15 4v10.2a4.8 4.8 0 1 1-4-4.7"/><path d="M15 4c.5 2.7 2.1 4.2 4.5 4.5"/></svg></a>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>© 2026 Mayra Moda Íntima. Todos os direitos reservados.</span>
+        <div class="payment-methods"><small>Aceitamos</small><span>PIX</span><span>VISA</span><span>ELO</span><span>MASTER</span></div>
+      </div>`;
   }
 
   if (!$('.whatsapp-float')) {
@@ -699,16 +731,157 @@ function initPanels() {
   });
 }
 
-function initStories() {
-  const videos = $$('.story-card video');
-  if (!videos.length || !('IntersectionObserver' in window)) return;
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach((entry) => {
-      if (entry.isIntersecting) entry.target.play().catch(() => {});
-      else entry.target.pause();
+function initAnnouncement() {
+  const root = $('[data-announcement-text]')?.closest('.announcement');
+  if (!root) return;
+
+  const text = $('[data-announcement-text]', root);
+  let index = 0;
+  let timer;
+
+  const show = (nextIndex) => {
+    index = (nextIndex + announcementMessages.length) % announcementMessages.length;
+    text.classList.remove('is-changing');
+    requestAnimationFrame(() => {
+      text.textContent = announcementMessages[index];
+      text.classList.add('is-changing');
     });
-  }, { threshold: 0.45 });
-  videos.forEach((video) => observer.observe(video));
+  };
+  const schedule = () => {
+    clearInterval(timer);
+    timer = setInterval(() => show(index + 1), 5200);
+  };
+
+  $('[data-announcement-previous]', root)?.addEventListener('click', () => {
+    show(index - 1);
+    schedule();
+  });
+  $('[data-announcement-next]', root)?.addEventListener('click', () => {
+    show(index + 1);
+    schedule();
+  });
+  root.addEventListener('mouseenter', () => clearInterval(timer));
+  root.addEventListener('mouseleave', schedule);
+  root.addEventListener('focusin', () => clearInterval(timer));
+  root.addEventListener('focusout', schedule);
+  schedule();
+}
+
+function initHeroCarousel() {
+  const root = $('[data-hero-carousel]');
+  if (!root) return;
+
+  const slides = $$('[data-hero-slide]', root);
+  const dots = $$('[data-hero-dot]', root);
+  const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  let index = 0;
+  let timer;
+  let pointerStart = null;
+
+  const show = (nextIndex) => {
+    index = (nextIndex + slides.length) % slides.length;
+    slides.forEach((slide, slideIndex) => {
+      const active = slideIndex === index;
+      slide.classList.toggle('is-active', active);
+      slide.setAttribute('aria-hidden', active ? 'false' : 'true');
+    });
+    dots.forEach((dot, dotIndex) => {
+      const active = dotIndex === index;
+      dot.classList.toggle('is-active', active);
+      dot.setAttribute('aria-selected', active ? 'true' : 'false');
+    });
+  };
+  const stop = () => clearInterval(timer);
+  const start = () => {
+    stop();
+    if (!reduceMotion) timer = setInterval(() => show(index + 1), 6500);
+  };
+  const move = (direction) => {
+    show(index + direction);
+    start();
+  };
+
+  $('[data-hero-previous]', root)?.addEventListener('click', () => move(-1));
+  $('[data-hero-next]', root)?.addEventListener('click', () => move(1));
+  dots.forEach((dot) => dot.addEventListener('click', () => {
+    show(Number(dot.dataset.heroDot));
+    start();
+  }));
+  root.addEventListener('mouseenter', stop);
+  root.addEventListener('mouseleave', start);
+  root.addEventListener('focusin', stop);
+  root.addEventListener('focusout', start);
+  root.addEventListener('pointerdown', (event) => { pointerStart = event.clientX; });
+  root.addEventListener('pointerup', (event) => {
+    if (pointerStart === null) return;
+    const distance = event.clientX - pointerStart;
+    pointerStart = null;
+    if (Math.abs(distance) > 55) move(distance > 0 ? -1 : 1);
+  });
+  show(0);
+  start();
+}
+
+function initStories() {
+  const carousel = $('[data-story-carousel]');
+  if (!carousel) return;
+
+  const track = $('[data-story-track]', carousel);
+  const cards = $$('.story-card', track);
+  const videos = $$('video', track);
+
+  const stopVideo = (video) => {
+    const card = video.closest('.story-card');
+    video.pause();
+    card?.classList.remove('is-playing');
+    const button = $('.story-play', card);
+    button?.setAttribute('aria-label', 'Reproduzir vídeo');
+  };
+  const toggleVideo = (video) => {
+    if (!video.paused) {
+      stopVideo(video);
+      return;
+    }
+    videos.filter((item) => item !== video).forEach(stopVideo);
+    video.muted = false;
+    video.volume = 1;
+    const markPlaying = () => {
+      const card = video.closest('.story-card');
+      card?.classList.add('is-playing');
+      $('.story-play', card)?.setAttribute('aria-label', 'Pausar vídeo');
+    };
+    markPlaying();
+    video.play().catch(() => {
+      video.muted = true;
+      video.play().catch(() => stopVideo(video));
+    });
+  };
+
+  cards.forEach((card) => {
+    const video = $('video', card);
+    const button = $('.story-play', card);
+    button?.addEventListener('click', (event) => {
+      event.stopPropagation();
+      toggleVideo(video);
+    });
+    video?.addEventListener('click', () => toggleVideo(video));
+    video?.addEventListener('ended', () => {
+      video.currentTime = 0;
+      stopVideo(video);
+    });
+  });
+
+  const scroll = (direction) => {
+    const card = cards[0];
+    if (!card) return;
+    const gap = Number.parseFloat(getComputedStyle(track).gap) || 24;
+    track.scrollBy({ left: direction * (card.getBoundingClientRect().width + gap), behavior: 'smooth' });
+  };
+  $('[data-story-previous]', carousel)?.addEventListener('click', () => scroll(-1));
+  $('[data-story-next]', carousel)?.addEventListener('click', () => scroll(1));
+  document.addEventListener('visibilitychange', () => {
+    if (document.hidden) videos.forEach(stopVideo);
+  });
 }
 
 function initNewsletter() {
@@ -722,6 +895,8 @@ function initNewsletter() {
 
 function boot() {
   buildShell();
+  initAnnouncement();
+  initHeroCarousel();
   initCategoryGrid();
   initProductBlocks();
   initCollections();

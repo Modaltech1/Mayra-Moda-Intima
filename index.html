@@ -15,13 +15,27 @@
   <div class="search-panel" data-search-panel></div>
 
   <main>
-    <section class="home-hero">
-      <img src="/assets/reference/home/hero-desktop.jpg" alt="Mulheres usando moda íntima Mayra" />
-      <div class="home-hero__content">
-        <span>Conforto que acompanha você</span>
-        <h1>Liberdade para se vestir como quiser.</h1>
-        <p>Peças leves, invisíveis sob a roupa e pensadas para todos os corpos.</p>
-        <a class="btn primary" href="/collections/all.html">Escolha seus produtos</a>
+    <section class="home-hero" data-hero-carousel aria-label="Destaques Mayra">
+      <div class="home-hero__track">
+        <article class="home-hero__slide is-active" data-hero-slide>
+          <img src="/assets/reference/home/hero-desktop.jpg" alt="Mulheres usando moda íntima Mayra" />
+          <div class="home-hero__content">
+            <span>Conforto que acompanha você</span>
+            <h1>Liberdade para se vestir como quiser.</h1>
+            <p>Peças leves, invisíveis sob a roupa e pensadas para todos os corpos.</p>
+            <a class="btn primary" href="/collections/all.html">Escolha seus produtos</a>
+          </div>
+        </article>
+        <article class="home-hero__slide home-hero__slide--offer" data-hero-slide aria-hidden="true">
+          <img src="/assets/reference/home/hero-desktop1.jpg" alt="Oferta de aniversário Mayra com 30% de desconto" />
+          <a class="btn hero-offer-cta" href="/collections/all.html">Aproveitar a oferta</a>
+        </article>
+      </div>
+      <button class="hero-arrow hero-arrow--previous" type="button" data-hero-previous aria-label="Banner anterior">←</button>
+      <button class="hero-arrow hero-arrow--next" type="button" data-hero-next aria-label="Próximo banner">→</button>
+      <div class="hero-dots" role="tablist" aria-label="Escolher banner">
+        <button class="is-active" type="button" data-hero-dot="0" aria-label="Mostrar primeiro banner" aria-selected="true"></button>
+        <button type="button" data-hero-dot="1" aria-label="Mostrar segundo banner" aria-selected="false"></button>
       </div>
     </section>
 
@@ -80,31 +94,47 @@
           <h2>Squad Mayra</h2>
         </div>
       </div>
-      <div class="story-grid">
+      <div class="story-carousel" data-story-carousel>
+        <button class="story-arrow story-arrow--previous" type="button" data-story-previous aria-label="Vídeos anteriores">‹</button>
+        <div class="story-grid" data-story-track>
         <article class="story-card">
-          <video muted loop playsinline preload="metadata" poster="/assets/reference/home/lifestyle-01.jpg">
+          <div class="story-card__media">
+          <video playsinline preload="metadata">
             <source src="/assets/reference/videos/story-01.mp4" type="video/mp4" />
           </video>
-          <div><strong>@mayramodaintima</strong><a href="/collections/sutias.html">Ver sutiãs</a></div>
+          <button class="story-play" type="button" aria-label="Reproduzir vídeo"><span></span></button>
+          </div>
+          <div class="story-card__footer"><strong>@mayramodaintima <span class="verified" aria-label="Perfil verificado">✓</span></strong><a href="/collections/sutias.html">Ver sutiãs</a></div>
         </article>
         <article class="story-card">
-          <video muted loop playsinline preload="metadata" poster="/assets/reference/home/lifestyle-02.jpg">
+          <div class="story-card__media">
+          <video playsinline preload="metadata">
             <source src="/assets/reference/videos/story-02.mp4" type="video/mp4" />
           </video>
-          <div><strong>@mayramodaintima</strong><a href="/collections/calcinhas.html">Ver calcinhas</a></div>
+          <button class="story-play" type="button" aria-label="Reproduzir vídeo"><span></span></button>
+          </div>
+          <div class="story-card__footer"><strong>@mayramodaintima <span class="verified" aria-label="Perfil verificado">✓</span></strong><a href="/collections/calcinhas.html">Ver calcinhas</a></div>
         </article>
         <article class="story-card">
-          <video muted loop playsinline preload="metadata" poster="/assets/reference/products/comfort-slim.jpg">
+          <div class="story-card__media">
+          <video playsinline preload="metadata">
             <source src="/assets/reference/videos/story-03.mp4" type="video/mp4" />
           </video>
-          <div><strong>@mayramodaintima</strong><a href="/collections/conjuntos.html">Ver conjuntos</a></div>
+          <button class="story-play" type="button" aria-label="Reproduzir vídeo"><span></span></button>
+          </div>
+          <div class="story-card__footer"><strong>@mayramodaintima <span class="verified" aria-label="Perfil verificado">✓</span></strong><a href="/collections/conjuntos.html">Ver conjuntos</a></div>
         </article>
         <article class="story-card">
-          <video muted loop playsinline preload="metadata" poster="/assets/reference/products/protetor-silicone.jpg">
+          <div class="story-card__media">
+          <video playsinline preload="metadata">
             <source src="/assets/reference/videos/story-04.mp4" type="video/mp4" />
           </video>
-          <div><strong>@mayramodaintima</strong><a href="/collections/acessorios.html">Ver acessórios</a></div>
+          <button class="story-play" type="button" aria-label="Reproduzir vídeo"><span></span></button>
+          </div>
+          <div class="story-card__footer"><strong>@mayramodaintima <span class="verified" aria-label="Perfil verificado">✓</span></strong><a href="/collections/acessorios.html">Ver acessórios</a></div>
         </article>
+        </div>
+        <button class="story-arrow story-arrow--next" type="button" data-story-next aria-label="Próximos vídeos">›</button>
       </div>
     </section>
 
